@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "description": "",
+  "main": "index.js",
   "scripts": {
-    "setup": "npm install"
+    "setup": "npm install",
+    "dev": "node index.js"
   }
 }
