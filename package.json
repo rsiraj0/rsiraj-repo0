@@ -1,0 +1,9 @@
+{
+  "name": "rsiraj-repo0",
+  "version": "0.1.0",
+  "private": true,
+  "description": "",
+  "scripts": {
+    "setup": "npm install"
+  }
+}
