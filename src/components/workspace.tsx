@@ -27,13 +27,7 @@ export default function App() {
 
 type View = "preview" | "code";
 
-export function Workspace({
-  user,
-  anonId,
-}: {
-  user: { email: string } | null;
-  anonId: string | null;
-}) {
+export function Workspace({ user }: { user: { email: string } | null }) {
   const [files, setFiles] = useState<VFS>(INITIAL_FILES);
   const [entry, setEntry] = useState<string>("/App.tsx");
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -79,11 +73,10 @@ export function Workspace({
     setFiles((f) => ({ ...f, [path]: content }));
   }, []);
 
-  const subtitle = useMemo(() => {
-    if (user) return `Signed in as ${user.email}`;
-    if (anonId) return `Anonymous session · ${anonId}`;
-    return "";
-  }, [user, anonId]);
+  const subtitle = useMemo(
+    () => (user ? `Signed in as ${user.email}` : "Anonymous session"),
+    [user],
+  );
 
   return (
     <div className="flex h-screen flex-col">
